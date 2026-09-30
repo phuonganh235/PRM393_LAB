@@ -1,6 +1,7 @@
 void main() {
   exercise1();
   exercise2();
+  exercise3();
 }
 
 // Ex1
@@ -72,3 +73,66 @@ void exercise2() {
   print('Map: $scores');
   print('Keys: ${scores.keys}, Values: ${scores.values}');
 }
+
+// Ex3
+void exercise3() {
+  print('\n===== Exercise 3 =====');
+  int score = 78;
+  if (score >= 85) {
+    print('Score $score -> Excellent');
+  } else if (score >= 70) {
+    print('Score $score -> Good');
+  } else if (score >= 50) {
+    print('Score $score -> Average');
+  } else {
+    print('Score $score -> Fail');
+  }
+  int day = 3;
+  String dayName;
+  switch (day) {
+    case 1:
+      dayName = 'Monday';
+    case 2:
+      dayName = 'Tuesday';
+    case 3:
+      dayName = 'Wednesday';
+    case 4:
+      dayName = 'Thursday';
+    case 5:
+      dayName = 'Friday';
+    case 6:
+    case 7:
+      dayName = 'Weekend';
+    default:
+      dayName = 'Invalid day';
+  }
+  print('Day $day is $dayName');
+  List<String> subjects = ['Math', 'Physics', 'Dart'];
+
+  // Cách 1: for có biến đếm
+  for (int i = 0; i < subjects.length; i++) {
+    print('for     -> [$i] ${subjects[i]}');
+  }
+
+  // Cách 2: for-in
+  for (var s in subjects) {
+    print('for-in  -> $s');
+  }
+
+  // Cách 3: forEach
+  subjects.forEach((s) => print('forEach -> $s'));
+
+  print('add(3, 4) = ${add(3, 4)}');
+  print('square(5) = ${square(5)}');
+  greet('An');
+  greet('Binh', greeting: 'Xin chao');
+}
+
+int add(int a, int b) {
+  return a + b;
+}
+
+int square(int x) => x * x;
+
+void greet(String name, {String greeting = 'Hello'}) =>
+    print('$greeting, $name!');
