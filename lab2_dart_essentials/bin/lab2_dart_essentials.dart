@@ -2,6 +2,8 @@ void main() {
   exercise1();
   exercise2();
   exercise3();
+  exercise4();
+  //exercise5();
 }
 
 // Ex1
@@ -136,3 +138,37 @@ int square(int x) => x * x;
 
 void greet(String name, {String greeting = 'Hello'}) =>
     print('$greeting, $name!');
+
+// Ex4
+class Car {
+  String brand;
+  int speed = 0;
+
+  Car(this.brand);
+  Car.withSpeed(this.brand, this.speed);
+  void drive() => print('$brand is driving at $speed km/h');
+  String describe() => 'Car: $brand';
+}
+class ElectricCar extends Car {
+  int battery;
+  ElectricCar(super.brand, this.battery);
+  @override
+  void drive() => print('$brand is driving silently, battery $battery%');
+  @override
+  String describe() => 'ElectricCar: $brand (battery $battery%)';
+}
+void exercise4() {
+  print('\n===== Exercise 4 =====');
+
+  Car car1 = Car('Toyota');
+  car1.drive();
+  Car car2 = Car.withSpeed('Honda', 60);
+  car2.drive();
+  ElectricCar tesla = ElectricCar('Tesla', 85);
+  tesla.drive();
+  print('Tesla battery: ${tesla.battery}%');
+  List<Car> garage = [car1, car2, tesla];
+  for (var c in garage) {
+    print(c.describe());
+  }
+}
